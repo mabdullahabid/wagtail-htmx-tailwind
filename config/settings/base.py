@@ -48,6 +48,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'tailwind',
+    'theme',
+    'django_browser_reload',
 ]
 
 MIDDLEWARE = [
@@ -60,6 +64,8 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
 
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
+
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -68,7 +74,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(PROJECT_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -168,3 +174,10 @@ WAGTAILSEARCH_BACKENDS = {
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
+
+# django-tailwind configuration
+TAILWIND_APP_NAME = 'theme'
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+]

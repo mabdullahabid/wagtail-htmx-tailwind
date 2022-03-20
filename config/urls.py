@@ -16,6 +16,7 @@ urlpatterns = [
 
     path('search/', search_views.search, name='search'),
 
+    path("__reload__/", include("django_browser_reload.urls")),
 ]
 
 
